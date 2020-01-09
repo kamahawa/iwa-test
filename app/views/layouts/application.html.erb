@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IwaTest</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if current_user %>
+      <header>
+        <div class="container">
+          <div class="d-flex flex-md-row align-items-center p-3 border-bottom shadow-sm">
+            <h5 class="mr-md-auto header-title">
+              <%= link_to root_path do %>
+                <i class="fas fa-home"></i> IWA
+              <% end %>
+            </h5>
+            <nav>
+              <%= render '/layouts/menu' %>
+            </nav>
+          </div>
+        </div>
+      </header>
+    <% end %>
+    <section class="section">
+      <div class="container">
+        <div class="mt-3">
+          <div class='layout-notice'>
+            <% flash.each do |key, value| %>
+              <% type = key == 'alert' ? 'danger' : 'primary' %>
+              <div class="alert alert-<%= type %>"><%= value %></div>
+            <% end %>
+          </div>
+          <%= yield %>
+        </div>
+      </div>
+    </section
+  </body>
+</html>

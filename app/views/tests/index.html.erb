@@ -1,0 +1,33 @@
+<%= link_to new_test_path, class: 'btn btn-outline-primary' do %>
+  <i class="fa fa-plus" aria-hidden="true"></i>
+  New test
+<% end %>
+
+<table class='table table-bordered table-striped table-hover mt-3'>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Questions</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tests.each do |test| %>
+      <tr>
+        <td><%= test.name %></td>
+        <td><%= test.description.truncate(50) %></td>
+        <td><%= test.questions.length %></td>
+        <td>
+          <%= link_to edit_test_path(test), class: 'btn btn-primary' do %>
+            <i class="fas fa-user-edit"></i> Edit
+            <% end %>
+          <%= link_to test, method: :delete, data: { confirm: 'Are you sure?' }, class: 'ml-1 btn btn-danger' do %>
+            <i class="far fa-trash-alt"></i> Delete
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,33 @@
+<%= link_to new_user_path, class: 'btn btn-outline-primary' do %>
+  <i class="fa fa-plus" aria-hidden="true"></i>
+  New User
+<% end %>
+
+<table class='table table-bordered table-striped table-hover mt-3'>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.name, user %></td>
+        <td><%= user.email %></td>
+        <td><%= user.role %></td>
+        <td>
+          <%= link_to edit_user_path(user), class: 'btn btn-primary' do %>
+            <i class="fas fa-user-edit"></i> Edit
+          <% end %>
+          <%= link_to user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'ml-1 btn btn-danger' do %>
+            <i class="far fa-trash-alt"></i> Delete
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

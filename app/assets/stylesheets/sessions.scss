@@ -1,0 +1,28 @@
+// Place all the styles related to the sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+#authentication-form {
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 20vh;
+
+  .title {
+    font-size: 30px;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+
+  .fields {
+    padding: 15px 20px;
+    text-align: left;
+  }
+
+  .actions {
+    padding: 15px 20px;
+    text-align: right;
+
+    .btn {
+      width: 150px;
+    }
+  }
+}

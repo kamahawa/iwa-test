@@ -1,0 +1,31 @@
+Rails.application.routes.draw do
+  devise_for :users, controllers: {
+    sessions: 'sessions'
+  }
+
+  root to: 'users#index'
+
+  resources :users
+  resources :tests
+
+  # Api
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      get 'api_docs', to: 'api_docs#index'
+
+      namespace :authentication do
+        post :login
+        post :logout
+      end
+
+      resources :tests, only: %w[index show]
+      resources :test_results, only: %w[create]
+    end
+
+    match "*path", to: "base#catch_404", via: :all
+  end
+
+  mount SwaggerUiEngine::Engine, at: '/api_docs'
+
+  match "*path", to: "application#catch_404", via: :all
+end

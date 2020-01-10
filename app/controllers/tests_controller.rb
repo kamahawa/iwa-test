@@ -17,12 +17,24 @@ class TestsController < ApplicationController
 
   def create
     @test = Test.new(test_params)
-
+    
+    logger.debug "------------------------------------------"
+    logger.debug "There is debug"
+    logger.debug "------------------------------------------"
+    
     if @test.save
       redirect_to tests_path, notice: 'Test was successfully created.'
     else
+      logger.debug "------------------------------------------"
+      logger.debug @test.errors.full_messages
+      logger.debug "------------------------------------------"
+      
       render :new
     end
+
+    logger.debug "------------------------------------------"
+    logger.debug "end debug"
+    logger.debug "------------------------------------------"
   end
 
   def add_question

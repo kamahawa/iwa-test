@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_06_040411) do
+ActiveRecord::Schema.define(version: 2020_01_10_031416) do
 
   create_table "options", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "content"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_01_06_040411) do
     t.bigint "question_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["content"], name: "index_options_on_content", unique: true
+    t.index ["content"], name: "index_options_on_content"
     t.index ["is_answer"], name: "index_options_on_is_answer"
     t.index ["question_id"], name: "index_options_on_question_id"
   end
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2020_01_06_040411) do
     t.bigint "test_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["content"], name: "index_questions_on_content", unique: true
+    t.index ["content"], name: "index_questions_on_content"
     t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 2020_01_06_040411) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_tests_on_name", unique: true
   end
 
   create_table "users", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|

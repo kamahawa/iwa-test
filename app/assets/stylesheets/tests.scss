@@ -1,3 +1,18 @@
 // Place all the styles related to the tests controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.remove-question {
+    border-color: #dc3545;
+    i {
+        color: #dc3545;
+    }
+
+    &:hover 
+    {
+        border-color: #bd2130;
+        i {
+            color: #c82333;
+        }
+    }
+}

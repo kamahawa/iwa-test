@@ -15,7 +15,7 @@ class User < ApplicationRecord
   # Custom validate
   validates :email,
     presence: true,
-    uniqueness: true,
+    uniqueness: { case_sensitive: true },    
     length: { maximum: 50 },
     format: { with: Devise.email_regexp, allow_blank: true }
 

@@ -10,7 +10,7 @@
       <%= f.check_box :is_answer, id: "#{f.object_name}" %>
       <label for="<%= "#{f.object_name}"%>">Correct answer</label>
     </div>
-    <div>
+    <div class="ml-2">
       <%= f.hidden_field :_destroy, class: 'hidden-destroy' %>
       <%= link_to '#', class: 'remove-record form-control remove-option' do %>
         <i class="fas fa-trash-alt"></i>

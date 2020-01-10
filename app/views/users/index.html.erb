@@ -19,12 +19,25 @@
         <td><%= link_to user.name, user %></td>
         <td><%= user.email %></td>
         <td><%= user.role %></td>
-        <td>
-          <%= link_to edit_user_path(user), class: 'btn btn-primary' do %>
-            <i class="fas fa-user-edit"></i> Edit
-          <% end %>
-          <%= link_to user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'ml-1 btn btn-danger' do %>
-            <i class="far fa-trash-alt"></i> Delete
+        <td>        
+          <% if current_user.id == user.id %>
+            <div class="isDisabled d-inline-block">
+            <%= link_to edit_user_path(user), class: 'btn btn-primary' do %>
+              <i class="fas fa-user-edit"></i> Edit
+            <% end %>
+            </div>
+            <div class="isDisabled d-inline-block">
+            <%= link_to user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'ml-1 btn btn-danger' do %>
+              <i class="far fa-trash-alt"></i> Delete
+            <% end %>
+            </div>
+          <% else %>
+            <%= link_to edit_user_path(user), class: 'btn btn-primary' do %>
+              <i class="fas fa-user-edit"></i> Edit
+            <% end %>
+            <%= link_to user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'ml-1 btn btn-danger' do %>
+              <i class="far fa-trash-alt"></i> Delete
+            <% end %>
           <% end %>
         </td>
       </tr>
